@@ -1,0 +1,38 @@
+.Navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 80px;
+  padding: 0 150px;
+  background-color: white;
+  z-index: 10;
+}
+.Navbar .categoriesContainer {
+  flex: 1;
+  height: 100%;
+}
+.Navbar .categoriesContainer .categoryButton {
+  cursor: pointer;
+  margin: 0;
+  font-family: "Raleway";
+  font-weight: 600;
+  font-size: 16px;
+  background-color: white;
+  border: none;
+  text-transform: uppercase;
+  padding: 0 15px;
+  height: 100%;
+}
+.Navbar .categoriesContainer .activeCategory {
+  border-bottom: 3px solid #5ECE7B;
+  color: #5ECE7B;
+}
+.Navbar .logo {
+  width: 41px;
+  height: 41px;
+}/*# sourceMappingURL=navbar.css.map */

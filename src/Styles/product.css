@@ -1,0 +1,89 @@
+.productCardContainer {
+  transition: box-shadow 0.2s;
+  padding: 16px;
+  margin: 15px 50px 25px 0;
+  max-width: 250px;
+}
+.productCardContainer .productImageWrapper .productImage {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+.productCardContainer .productImageWrapper .productImageOverlayWrapper {
+  display: none;
+}
+.productCardContainer .productName {
+  font-family: "Raleway";
+  font-weight: 300;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.productCardContainer .productPrice {
+  font-family: "Raleway";
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+}
+.productCardContainer .addToCartButtonWrapper {
+  position: absolute;
+}
+.productCardContainer .addToCartButtonWrapper .addToCartCircleButton {
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  left: 180px;
+  bottom: 100px;
+  opacity: 0;
+}
+.productCardContainer .addToCartButtonWrapper .addToCartCircleButton .addToCartIcon {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.productCardContainer .addToCartButtonWrapper .addToCartCircleButton:hover {
+  transform: scale(1.1);
+}
+.productCardContainer .addToCartButtonWrapper .addToCartCircleButton:active {
+  transform: scale(1);
+}
+
+.productCardContainer[stock=false] .productName {
+  color: #8D8F9A;
+}
+.productCardContainer[stock=false] .productPrice {
+  color: #8D8F9A;
+}
+.productCardContainer[stock=false] .productImageWrapper .productImageOverlayWrapper {
+  display: block;
+  position: relative;
+}
+.productCardContainer[stock=false] .productImageWrapper .productImageOverlayWrapper p {
+  position: absolute;
+  background-color: rgba(242, 242, 242, 0.561);
+  color: #8D8F9A;
+  top: 0;
+  left: 0;
+  height: 250px;
+  width: 250px;
+  margin: 0;
+  line-height: 250px;
+  text-align: center;
+  font-size: 24px;
+  font-family: "Raleway";
+  font-weight: 400;
+}
+.productCardContainer[stock=false] .addToCartButtonWrapper {
+  display: none;
+}
+
+.productCardContainer[stock=true]:hover {
+  box-shadow: 0px 0px 3.6px rgba(0, 0, 0, 0.021), 0px 0px 10px rgba(0, 0, 0, 0.03), 0px 0px 24.1px rgba(0, 0, 0, 0.039), 0px 0px 80px rgba(0, 0, 0, 0.06);
+}
+.productCardContainer[stock=true]:hover .addToCartCircleButton {
+  opacity: 1;
+}/*# sourceMappingURL=product.css.map */

@@ -1,0 +1,39 @@
+$primaryColor : #5ECE7B;
+.Navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height:80px;
+    padding: 0 150px;
+    background-color: white;
+    z-index: 10;
+    .categoriesContainer{
+        flex: 1;
+        height: 100%;
+        .categoryButton{
+            cursor: pointer;
+            margin: 0;
+            font-family: "Raleway";
+            font-weight: 600;
+            font-size: 16px;
+            background-color: white;
+            border: none;
+            text-transform: uppercase;
+            padding: 0 15px;
+            height: 100%;
+        }
+        .activeCategory{
+            border-bottom: 3px solid $primaryColor;
+            color: $primaryColor;
+        }
+    }
+    .logo{
+        width: 41px;
+        height: 41px;
+    }
+}

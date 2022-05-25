@@ -1,0 +1,137 @@
+$primaryColor : #5ECE7B;
+.ProductDisplayPage{
+    display: flex;
+    justify-content: center;
+    padding: 150px 0 200px;
+    flex-wrap: wrap;
+    .productGalleryContainer{
+        display: flex;
+        .productImagesWrapper{
+            padding: 0 10px 0 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            max-height: 510px;
+            .smallProductImage{
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
+                object-position: top left;
+                margin: 0 0 20px 0;
+                padding: 0;
+            }
+        }
+        .bigProductImage{
+            width: 610px;
+            height: 510px;
+            object-fit: cover;
+            object-position: top left;     
+            margin: 0 50px 0 25px;
+        }
+    }
+
+    .productInfoContainer{
+      max-width: 300px;
+        .infoTitle {
+            font-family: "Roboto Condensed";
+            text-transform: uppercase;
+            margin: 0 0 8px 0;
+            font-size: 18px;
+          }
+        .displayedProductName{
+            margin: 0 0 30px 0;
+            span{
+                font-weight: bold;
+            }
+            font-family: "Raleway";
+            font-weight: normal;
+        }
+        .priceWrapper{
+            margin: 25px 0;
+            .displayedProductPrice{
+                font-family: "Raleway";
+                font-weight: 700 bold;
+                margin: 0;
+                font-size: 24px;
+            }
+        }
+        .productAttributesContainer{
+            .attributeSetWrapper{
+                margin: 0 0 15px 0;
+                  .attributeSetOptionsWrapper {
+                    display: flex;
+                    flex: 0 1 auto;
+                    p {
+                      margin: 0;
+                    }
+                    .attributeButton {
+                      cursor: pointer;
+                      margin: 0 8px 0 0;
+                      border: 1px solid black;
+                      font-family: "Source Sans Pro";
+                      font-weight: normal;
+                      font-size: 16px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      min-width: 60px;
+                      height: 40px;
+                      text-align: center;
+                      padding: 0 2px;
+                    }
+                    .attributeButton:hover {
+                      background-color: rgb(232, 232, 232);
+                    }
+                    .selectedAttribute {
+                      background-color: black;
+                      color: white;
+                    }
+                    .selectedAttribute:hover{
+                      background-color: black;
+                    }
+                    .attributeButton[type="swatch"] {
+                      padding: 0;
+                      min-width: 30px !important;
+                      height: 30px;
+                      border: none;
+                    }
+                    .attributeButton[type="swatch"]:hover {
+                      outline: 2px solid $primaryColor;
+                      outline-offset: 1px;
+                    }
+                    .selectedAttribute[type="swatch"]{
+                      outline: 2px solid $primaryColor;
+                      outline-offset: 1px;
+                    }
+                  }
+            }
+            
+        }
+        .productAddToCartButton{
+          transition-duration: 0.2s;
+            box-sizing: border-box;
+            border: none;
+            background-color: $primaryColor;
+            font-family: "Raleway";
+            font-weight: bold;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            width: 100%;
+            padding: 16px 32px;
+            border: 2px solid $primaryColor;
+            margin: 0 0 25px;
+        }
+        .productAddToCartButton:hover{
+          background-color: white;
+          color: $primaryColor;
+          transition-duration: 0.2s;
+        }
+        .productDescription{
+            font-family: "Roboto";
+            font-size: 16px;
+        }
+    }
+}
+
+

@@ -1,0 +1,108 @@
+.Cart {
+  position: relative;
+}
+.Cart .cartButtonWrapper {
+  display: flex;
+  align-items: center;
+}
+.Cart .cartButtonWrapper .cartIcon {
+  height: 19px;
+  cursor: pointer;
+}
+.Cart .cartButtonWrapper .cartItemsQuantityIcon {
+  cursor: pointer;
+  font-family: "Roboto";
+  font-size: 14px;
+  margin: 0;
+  background-color: black;
+  color: white;
+  position: relative;
+  padding: 8px;
+  -webkit-clip-path: circle(40%);
+          clip-path: circle(40%);
+  right: 8px;
+  bottom: 10px;
+}
+.Cart .cartContainer {
+  background-color: white;
+  padding: 0 15px;
+  position: absolute;
+  right: 0px;
+  top: 40px;
+  z-index: 10;
+  min-width: 300px;
+}
+.Cart .cartWrapper {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.Cart .cartWrapper::-webkit-scrollbar {
+  width: 10px;
+  height: 0px;
+}
+.Cart .cartWrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.Cart .cartWrapper::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.Cart .cartWrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.Cart .cartQuantityTotal {
+  font-family: "Raleway";
+  font-weight: 500;
+  min-width: 200px;
+}
+.Cart .cartClosed {
+  visibility: hidden;
+}
+.Cart .cartPriceTotalWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.Cart .cartPriceTotalWrapper .cartPriceTotalTitle {
+  font-family: "Roboto";
+  font-weight: 500;
+}
+.Cart .cartPriceTotalWrapper .cartPriceTotalAmount {
+  font-family: "Raleway";
+  font-weight: 700;
+}
+.Cart .checkoutButtonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.Cart .checkoutButtonContainer button {
+  width: 45%;
+  font-family: "Raleway";
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 0px;
+  margin: 0 0 15px 0;
+}
+.Cart .checkoutButtonContainer .viewBagButton {
+  background-color: white;
+  border: 1px solid black;
+  transition-property: background-color, color;
+  transition-duration: 0.3s;
+}
+.Cart .checkoutButtonContainer .viewBagButton:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.Cart .checkoutButtonContainer .checkoutButton {
+  background-color: #5ece7b;
+  color: white;
+  border: none;
+  transition-property: background-color, color, border;
+  transition-duration: 0.3s;
+}
+.Cart .checkoutButtonContainer .checkoutButton:hover {
+  background-color: white;
+  color: #5ece7b;
+  border: 1px solid #5ece7b;
+  cursor: pointer;
+}/*# sourceMappingURL=cart.css.map */

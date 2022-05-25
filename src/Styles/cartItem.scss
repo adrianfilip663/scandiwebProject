@@ -1,0 +1,117 @@
+$primaryColor : #5ECE7B;
+.cartItemWrapper {
+  display: flex;
+  margin: 0 0 15px 0;
+  justify-content: space-between;
+  align-items: flex-start;
+  .cartItemInfoContainer {
+    .cartItemName {
+      font-family: "Raleway";
+      font-weight: 300;
+      margin: 0 0 10px 0;
+    }
+    .cartItemPrice {
+      font-family: "Raleway";
+      font-weight: bold;
+      margin: 0 0 10px 0;
+    }
+    .cartItemAttributeSetWrapper {
+      margin-bottom: 10px;
+      .cartItemAttributeSetTitle {
+        font-family: "Raleway";
+        font-weight: 500;
+        margin: 0 0 8px 0;
+      }
+      .cartItemAttributeSetOptionsContainer {
+        display: flex;
+        flex: 0 1 auto;
+        p {
+          margin: 0;
+        }
+        .cartItemAttributeButton {
+          margin: 0 4px 0 0;
+          border: 1px solid black;
+          font-family: "Source Sans Pro";
+          font-weight: normal;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 22px;
+          height: 24px;
+          text-align: center;
+          padding: 0 2px;
+          cursor: default;
+        }
+        .acartItemAttributeButton:hover {
+          background-color: rgb(232, 232, 232);
+        }
+        .selectedAttribute {
+          background-color: black;
+          color: white;
+        }
+        .selectedAttribute:hover {
+          background-color: black;
+        }
+        .cartItemAttributeButton[type="swatch"] {
+          padding: 0;
+          min-width: 15px !important;
+          height: 15px;
+          border: none;
+        }
+        .cartItemAttributeButton[type="swatch"]:hover {
+          outline: 2px solid $primaryColor;
+          outline-offset: 1px;
+        }
+        .selectedAttribute[type="swatch"] {
+          outline: 2px solid $primaryColor;
+          outline-offset: 1px;
+        }
+      }
+    }
+  }
+  .quantityAndPhotoContainer{
+    display: flex;
+    .cartItemQuantityContainer {
+      margin: 0 10px 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      .cartItemQuanitty {
+        font-family: "Raleway";
+        font-weight: bold;
+        text-align: center;
+      }
+      .cartItemQuantityButton {
+        background-color: transparent;
+        transition: transform 0.1s;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        height: fit-content;
+        padding: 0;
+      }
+      .quantityButtonMinus {
+        transform: translateY(-4px);
+      }
+    }
+    .cartItemPhotoContainer {
+      height: fit-content;
+      .cartItemPhoto {
+        width: 120px;
+        height: 190px;
+        object-fit: cover;
+        object-position: center left;
+        margin: 0;
+        padding: 0;
+      }
+      .cartPageImageButtonsContainer{
+        display: none;
+      }
+    }
+  }
+}

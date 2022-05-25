@@ -1,0 +1,112 @@
+$primaryColor: #5ece7b;
+.Cart {
+  .cartButtonWrapper {
+    display: flex;
+    align-items: center;
+    .cartIcon {
+      height: 19px;
+      cursor: pointer;
+    }
+    .cartItemsQuantityIcon {
+      cursor: pointer;
+      font-family: "Roboto";
+      font-size: 14px;
+      margin: 0;
+      background-color: black;
+      color: white;
+      position: relative;
+      padding: 8px;
+      clip-path: circle(40%);
+      right: 8px;
+      bottom: 10px;
+    }
+  }
+  position: relative;
+  .cartContainer {
+    background-color: white;
+    padding: 0 15px;
+    position: absolute;
+    right: 0px;
+    top: 40px;
+    z-index: 10;
+    min-width: 300px;
+  }
+  .cartWrapper {
+    max-height: 400px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 0px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+  .cartQuantityTotal {
+    font-family: "Raleway";
+    font-weight: 500;
+    min-width: 200px;
+  }
+  .cartClosed {
+    visibility: hidden;
+  }
+  .cartPriceTotalWrapper {
+    display: flex;
+    justify-content: space-between;
+    .cartPriceTotalTitle {
+      font-family: "Roboto";
+      font-weight: 500;
+    }
+    .cartPriceTotalAmount {
+      font-family: "Raleway";
+      font-weight: 700;
+    }
+  }
+  .checkoutButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    button {
+      width: 45%;
+      font-family: "Raleway";
+      font-weight: 600;
+      font-size: 16px;
+      padding: 10px 15px;
+      border-radius: 0px;
+      margin: 0 0 15px 0;
+    }
+    .viewBagButton {
+      background-color: white;
+      border: 1px solid black;
+      transition-property: background-color, color;
+      transition-duration: 0.3s;
+    }
+    .viewBagButton:hover {
+      background-color: black;
+      color: white;
+      cursor: pointer;
+    }
+    .checkoutButton {
+      background-color: $primaryColor;
+      color: white;
+      border: none;
+      transition-property: background-color, color, border;
+      transition-duration: 0.3s;
+    }
+    .checkoutButton:hover {
+      background-color: white;
+      color: $primaryColor;
+      border: 1px solid $primaryColor;
+      cursor: pointer;
+    }
+  }
+}

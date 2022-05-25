@@ -1,0 +1,90 @@
+.CartPage {
+  padding: 0 150px;
+}
+.CartPage .cartPageTitle {
+  margin: 125px 0 50px 0;
+  font-family: "Raleway";
+  font-size: 32px;
+}
+.CartPage .cartWrapper .CartItem {
+  border-top: 2px solid #e5e5e5;
+  padding: 10px 0;
+}
+.CartPage .cartWrapper .CartItem .cartItemWrapper {
+  align-items: center;
+  margin: 0;
+}
+.CartPage .cartWrapper .CartItem .cartItemWrapper .cartItemInfoContainer .cartItemName {
+  font-size: 30px;
+}
+.CartPage .cartWrapper .CartItem .cartItemWrapper .cartItemInfoContainer .cartItemName span {
+  font-weight: bold;
+}
+.CartPage .cartWrapper .CartItem .cartItemWrapper .cartItemInfoContainer .cartItemPrice {
+  font-size: 24px;
+}
+.CartPage .cartWrapper .CartItem .cartItemWrapper .cartItemInfoContainer .cartItemAttributeSetWrapper {
+  margin-bottom: 10px;
+}
+.CartPage .cartWrapper .CartItem .cartItemWrapper .cartItemInfoContainer .cartItemAttributeSetWrapper .cartItemAttributeSetTitle {
+  font-family: "Roboto Condensed";
+  text-transform: uppercase;
+  font-size: 18px;
+}
+.CartPage .cartWrapper .CartItem .cartItemWrapper .cartItemInfoContainer .cartItemAttributeSetWrapper .cartItemAttributeSetOptionsContainer .cartItemAttributeButton {
+  font-size: 16px;
+  min-width: 60px;
+  height: 40px;
+}
+.CartPage .cartWrapper .CartItem .cartItemWrapper .cartItemInfoContainer .cartItemAttributeSetWrapper .cartItemAttributeSetOptionsContainer .cartItemAttributeButton[type=swatch] {
+  min-width: 30px !important;
+  height: 30px;
+}
+.CartPage .cartWrapper .CartItem .cartItemWrapper .quantityAndPhotoContainer .cartItemPhotoContainer .cartPageImageButtonsContainer {
+  display: block;
+  position: relative;
+}
+.CartPage .cartWrapper .CartItem .cartItemWrapper .quantityAndPhotoContainer .cartItemPhotoContainer .cartPageImageButtonsContainer .cartPageImageButtonsWrapper {
+  position: absolute;
+  left: 65px;
+  bottom: 10px;
+  display: flex;
+}
+.CartPage .cartWrapper .CartItem .cartItemWrapper .quantityAndPhotoContainer .cartItemPhotoContainer .cartPageImageButtonsContainer .cartPageImageButtonsWrapper button {
+  margin: 0 2px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.73);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.CartPage .cartTotalInfoContainer {
+  display: flex;
+}
+.CartPage .cartTotalInfoContainer .cartTotalInfoWrapper {
+  margin: 0 10px 0 0;
+}
+.CartPage .cartTotalInfoContainer .cartTotalInfoWrapper p {
+  font-family: "Raleway";
+  font-size: 24px;
+}
+.CartPage .CartItem:last-child {
+  border-bottom: 2px solid #e5e5e5;
+}
+.CartPage .cartPageOrderButton {
+  border: none;
+  background-color: #5ECE7B;
+  border: 2px solid #5ECE7B;
+  color: white;
+  padding: 15px 25px;
+  font-family: "Raleway";
+  font-size: 16px;
+  width: 250px;
+  transition-duration: 0.3s;
+}
+.CartPage .cartPageOrderButton:hover {
+  background-color: white;
+  color: #5ECE7B;
+}/*# sourceMappingURL=cartPage.css.map */

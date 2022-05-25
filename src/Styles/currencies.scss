@@ -1,0 +1,56 @@
+.Currencies {
+  user-select: none;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  .currencySwitcherContainer {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin: 0 25px 0 0;
+    .currencySwitcherButton {
+      cursor: pointer;
+      display: inline;
+      font-family: "Raleway";
+      font-weight: bold;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      border: none;
+      background-color: white;
+      .chevron {
+        margin: 0 0 0 5px;
+        transition-duration: 0.3s;
+        transform: rotateZ(180deg);
+      }
+      .closedChevron {
+        transform: rotateZ(360deg) !important;
+        transition-duration: 0.2s;
+      }
+    }
+    .currenciesList {
+      background-color: white;
+      list-style-type: none;
+      position: absolute;
+      z-index: 15;
+      top: 40px;
+      right: 155px;
+      padding: 0px;
+      box-shadow: 0px 6px 3.6px rgba(0, 0, 0, 0.021),
+        0px 16.5px 10px rgba(0, 0, 0, 0.03),
+        0px 39.8px 24.1px rgba(0, 0, 0, 0.039),
+        0px 132px 80px rgba(0, 0, 0, 0.06);
+      .currency {
+        font-family: "Raleway";
+        padding: 5px 15px;
+      }
+      .currency:hover {
+        background-color: #eeeeee;
+      }
+    }
+    .closedCurrenciesList {
+      visibility: hidden !important;
+    }
+  }
+}

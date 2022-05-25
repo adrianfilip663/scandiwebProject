@@ -1,0 +1,101 @@
+$primaryColor : #5ECE7B;
+.CartPage {
+  padding: 0 150px 200px;
+  .cartPageTitle {
+    margin: 125px 0 50px 0;
+    font-family: "Raleway";
+    font-size: 32px;
+  }
+  .cartWrapper {
+    .CartItem {
+      border-top: 2px solid #e5e5e5;
+      padding: 10px 0;
+      .cartItemWrapper {
+        align-items: center;
+        margin: 0;
+        .cartItemInfoContainer {
+          .cartItemName {
+            font-size: 30px;
+            span {
+              font-weight: bold;
+            }
+          }
+          .cartItemPrice {
+            font-size: 24px;
+          }
+          .cartItemAttributeSetWrapper {
+            margin-bottom: 10px;
+            .cartItemAttributeSetTitle {
+              font-family: "Roboto Condensed";
+              text-transform: uppercase;
+              font-size: 18px;
+            }
+            .cartItemAttributeSetOptionsContainer {
+              .cartItemAttributeButton {
+                font-size: 16px;
+                min-width: 60px;
+                height: 40px;
+              }
+              .cartItemAttributeButton[type="swatch"] {
+                min-width: 30px !important;
+                height: 30px;
+              }
+            }
+          }
+        }
+        .quantityAndPhotoContainer{
+          .cartItemPhotoContainer{
+            .cartPageImageButtonsContainer{
+              display: block;
+              position: relative;
+              .cartPageImageButtonsWrapper{
+                position: absolute;
+                left: 65px;
+                bottom: 10px;
+                display: flex;
+                button{
+                  margin: 0 2px;
+                  width: 20px;
+                  height: 20px;
+                  border: none;
+                  background-color: rgba(0, 0, 0, 0.73);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .cartTotalInfoContainer {
+    display: flex;
+    .cartTotalInfoWrapper {
+      margin: 0 10px 0 0;
+      p {
+        font-family: "Raleway";
+        font-size: 24px;
+      }
+    }
+  }
+  .CartItem:last-child {
+    border-bottom: 2px solid #e5e5e5;
+  }
+  .cartPageOrderButton {
+    border: none;
+    background-color: $primaryColor;
+    border: 2px solid $primaryColor;
+    color: white;
+    padding: 15px 25px;
+    font-family: "Raleway";
+    font-size: 16px;
+    width: 250px;
+    transition-duration: 0.3s;
+  }
+  .cartPageOrderButton:hover {
+    background-color: white;
+    color: $primaryColor;
+  }
+}
