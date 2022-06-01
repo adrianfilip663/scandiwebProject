@@ -33,21 +33,17 @@ class CartItem extends React.Component {
 
   nextPhoto(cartItem) {
     if (this.state.currentGalleryPhoto < cartItem.product.gallery.length - 1) {
-      {
         this.setState({
           currentGalleryPhoto: this.state.currentGalleryPhoto + 1,
         });
-      }
     }
   }
 
   previousPhoto() {
     if (this.state.currentGalleryPhoto > 0) {
-      {
         this.setState({
           currentGalleryPhoto: this.state.currentGalleryPhoto - 1,
         });
-      }
     }
   }
 
@@ -106,27 +102,25 @@ class CartItem extends React.Component {
           </div>
           <div className='quantityAndPhotoContainer'>
             <div className='cartItemQuantityContainer'>
-              <button className='cartItemQuantityButton'>
-                <img
-                  src={plus}
-                  alt='Increase Item Quantity'
-                  onClick={() => {
-                    store.dispatch(
-                      incrementItemQuantity(productID, cartItemIndex)
-                    );
-                  }}
-                ></img>
-              </button>
+              <img
+                className='cartItemQuantityButton'
+                src={plus}
+                alt='Increase Item Quantity'
+                onClick={() => {
+                  store.dispatch(
+                    incrementItemQuantity(productID, cartItemIndex)
+                  );
+                }}
+              ></img>
               <p className='cartItemQuantity'>{cartItem.cartItemQuantity}</p>
-              <button className='cartItemQuantityButton quantityButtonMinus'>
-                <img
-                  src={minus}
-                  alt='Decrease Item Quantity'
-                  onClick={() => {
-                    this.handleDecrement(productID, cartItemIndex);
-                  }}
-                ></img>
-              </button>
+              <img
+                className='cartItemQuantityButton quantityButtonMinus'
+                src={minus}
+                alt='Decrease Item Quantity'
+                onClick={() => {
+                  this.handleDecrement(productID, cartItemIndex);
+                }}
+              ></img>
             </div>
             <div className='cartItemPhotoContainer'>
               <img
@@ -138,14 +132,14 @@ class CartItem extends React.Component {
                 <div className='cartPageImageButtonsContainer'>
                   <div className='cartPageImageButtonsWrapper'>
                     <button onClick={this.previousPhoto}>
-                      <img src={leftChevron}></img>
+                      <img src={leftChevron} alt="Left Arrow"></img>
                     </button>
                     <button
                       onClick={() => {
                         this.nextPhoto(cartItem);
                       }}
                     >
-                      <img src={rightChevron}></img>
+                      <img src={rightChevron} alt="Right Arrow"></img>
                     </button>
                   </div>
                 </div>

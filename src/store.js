@@ -8,11 +8,8 @@ const initialState =
         cart: {},
         totalCartItems: 0,
         totalCartPrice: 0,
-        productDisplayPage: {
-          isDisplayingProduct: false,
-          displayedProduct: {},
-        },
-        isDisplayingCartPage: false,
+        displayedProduct: {},
+        displayedPage: "listingPage",
       }
     : JSON.parse(localStorage.getItem("http://localhost:3000:state"));
 
@@ -26,11 +23,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         selectedCategory: action.payload,
+        displayedPage: "listingPage",
       };
     case "CHANGE_CURRENCY":
       var newTotalPrice = 0;
-      Object.keys(state.cart).map((productID) => {
-        state.cart[productID].map((cartItem) => {
+      Object.keys(state.cart).forEach((productID) => {
+        state.cart[productID].forEach((cartItem) => {
           newTotalPrice +=
             cartItem.product.prices[action.payload.label].amount *
             cartItem.cartItemQuantity;
@@ -119,10 +117,8 @@ const rootReducer = (state = initialState, action) => {
     case "DISPLAY_PRODUCT":
       return {
         ...state,
-        productDisplayPage: {
-          isDisplayingProduct: action.payload.isDisplayingProduct,
-          displayedProduct: action.payload.displayedProduct,
-        },
+        displayedProduct: action.payload.displayedProduct,
+        displayedPage: "displayPage",
       };
     case "DELETE_ITEM":
       return {
@@ -142,7 +138,7 @@ const rootReducer = (state = initialState, action) => {
     case "DISPLAY_CART_PAGE":
       return {
         ...state,
-        isDisplayingCartPage: action.payload,
+        displayedPage: "cartPage",
       };
     default:
       return state;

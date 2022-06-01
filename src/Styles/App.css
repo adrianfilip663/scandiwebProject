@@ -1,3 +1,7 @@
+.App {
+  overflow-y: hidden;
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -10,8 +14,4 @@
 
 .overlayClosed {
   display: none;
-}
-
-.App {
-  overflow-y: hidden;
 }/*# sourceMappingURL=App.css.map */

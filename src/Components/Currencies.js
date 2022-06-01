@@ -11,6 +11,7 @@ class Currencies extends React.Component {
     super(props);
     this.state = {
       currencies: [],
+      isCurrenciesListOpen : false
     };
     this.loadCurrencies = this.loadCurrencies.bind(this);
     this.handleCurrenciesList = this.handleCurrenciesList.bind(this);
@@ -51,19 +52,15 @@ class Currencies extends React.Component {
 
   handleCurrenciesList() {
     // OPEN CURRENCIES LIST AND CLOSE IT AFTER A CLICK IF THE CURRENCIES LIST IS ALREADY OPEN
-    document.addEventListener("click", (e) => {
+    window.addEventListener("click", (e) => {
       if (
         (e.target.classList.contains("switcherButtonPart") &&
-          document
-            .getElementById("currenciesList")
-            .classList.contains("closedCurrenciesList")) ||
-        !document
-          .getElementById("currenciesList")
-          .classList.contains("closedCurrenciesList")
+        this.state.isCurrenciesListOpen === false) ||
+        this.state.isCurrenciesListOpen === true
       ) {
-        document
-          .getElementById("currenciesList")
-          .classList.toggle("closedCurrenciesList");
+        this.setState(prevState => ({
+          isCurrenciesListOpen : !prevState.isCurrenciesListOpen
+        }))
       }
     });
   }
@@ -82,7 +79,7 @@ class Currencies extends React.Component {
             ></img>
           </button>
           <ul
-            className='currenciesList closedCurrenciesList'
+            className={this.state.isCurrenciesListOpen === false ? "currenciesList closedCurrenciesList" : "currenciesList"}
             id='currenciesList'
           >
             {this.state.currencies.map((currency, index) => {
@@ -99,6 +96,7 @@ class Currencies extends React.Component {
             })}
           </ul>
         </div>
+        <div></div>
       </div>
     );
   }

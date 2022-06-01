@@ -42,14 +42,15 @@ class Product extends React.Component {
       for (var i = 0; i < cart[productID].length; i++) {
         const cartItem = cart[productID][i];
         var sameAttributesExist = true;
-        Object.keys(cartItem.selectedAttributes).map((attributeName) => {
+        for( var j=0;j < Object.keys(cartItem.selectedAttributes).length; j++){
+          var attributeName = Object.keys(cartItem.selectedAttributes)[j]
           if (
             cartItem.selectedAttributes[attributeName] !==
             this.state.selectedAttributes[attributeName]
           ) {
             sameAttributesExist = false;
           }
-        });
+        }
         if (sameAttributesExist) {
           index = i;
           break;
@@ -76,7 +77,7 @@ class Product extends React.Component {
           className='productCardWrapper'
           onClick={() => {
             if(this.props.product.inStock === true){
-              store.dispatch(displayProduct(true, this.props.product))
+              store.dispatch(displayProduct(this.props.product))
             };
           }}
         >

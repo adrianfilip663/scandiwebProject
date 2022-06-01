@@ -1,14 +1,15 @@
-const displayProduct = (stateOfDisplay, product) => ({
+const displayProduct = (product) => ({
   type: "DISPLAY_PRODUCT",
-  payload: { isDisplayingProduct: stateOfDisplay, displayedProduct: product },
+  payload: {displayedProduct: product },
 });
 
-const displayCartPage = (stateOfDisplay) => ({
+const displayCartPage = () => ({
   type: "DISPLAY_CART_PAGE",
-  payload: stateOfDisplay,
+  payload: ""
 });
 
-const changeCategory = (category) => ({
+const changeCategory = (category) => (
+  {
   type: "CHANGE_CATEGORY",
   payload: category,
 });

@@ -42,6 +42,7 @@
   height: 24px;
   text-align: center;
   padding: 0 2px;
+  cursor: default;
 }
 .cartItemWrapper .cartItemInfoContainer .cartItemAttributeSetWrapper .cartItemAttributeSetOptionsContainer .acartItemAttributeButton:hover {
   background-color: rgb(232, 232, 232);

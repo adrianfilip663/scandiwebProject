@@ -6,15 +6,15 @@ import store from "../store";
 import icon from "../icon.png";
 import Currencies from "./Currencies";
 import Cart from "./Cart";
-import { displayProduct, changeCategory, displayCartPage } from "../actions";
+import { changeCategory } from "../actions";
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       categories: [],
+      isCartOpen: false,
     };
-    this.changeActiveCategory = this.changeActiveCategory.bind(this);
     this.loadCategories = this.loadCategories.bind(this);
   }
 
@@ -40,21 +40,10 @@ class Navbar extends React.Component {
         this.setState({
           categories: categoriesList,
         });
-        if (localStorage.getItem("http://localhost:3000:state") === null) {
+        if (this.props.selectedCategory === "") {
           store.dispatch(changeCategory(categoriesList[0]));
         }
       });
-  }
-
-  changeActiveCategory(category) {
-    document
-      .getElementsByClassName("activeCategory")[0]
-      .classList.remove("activeCategory");
-    document.getElementById(category).classList.add("activeCategory");
-
-    store.dispatch(displayProduct(false, {}));
-    store.dispatch(displayCartPage(false));
-    store.dispatch(changeCategory(category));
   }
 
   render() {
@@ -63,14 +52,16 @@ class Navbar extends React.Component {
         <div className='categoriesContainer'>
           {this.state.categories.map((category, index) => {
             const className =
-              category === this.props.selectedCategory ? "categoryButton activeCategory" : "categoryButton";
+              category === this.props.selectedCategory
+                ? "categoryButton activeCategory"
+                : "categoryButton";
             return (
               <button
                 key={index}
                 className={className}
                 id={category}
                 onClick={() => {
-                  this.changeActiveCategory(category);
+                  store.dispatch(changeCategory(category));
                 }}
               >
                 {category}
@@ -78,9 +69,17 @@ class Navbar extends React.Component {
             );
           })}
         </div>
-        <img src={icon} alt='Logo' className='logo'></img>
+        <img
+          src={icon}
+          alt='Logo'
+          className='logo'
+          onClick={() => {
+            store.dispatch(changeCategory(this.state.categories[0]));
+          }}
+        ></img>
         <Currencies></Currencies>
-        <Cart></Cart>
+        <Cart handler = {this.props.handler}></Cart>
+
       </div>
     );
   }

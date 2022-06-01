@@ -3,6 +3,7 @@ $primaryColor : #5ECE7B;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 10 !important;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -11,7 +12,6 @@ $primaryColor : #5ECE7B;
     height:80px;
     padding: 0 150px;
     background-color: white;
-    z-index: 10;
     .categoriesContainer{
         flex: 1;
         height: 100%;
@@ -35,5 +35,6 @@ $primaryColor : #5ECE7B;
     .logo{
         width: 41px;
         height: 41px;
+        cursor: pointer;
     }
 }

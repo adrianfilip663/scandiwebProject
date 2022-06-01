@@ -2,28 +2,44 @@ import React from "react";
 import Navbar from "./Components/Navbar";
 import ProductListingPage from "./Pages/PLP";
 import ProductDisplayPage from "./Pages/PDP";
-import CartPage from "./Pages/CartPage"
+import CartPage from "./Pages/CartPage";
 import { connect } from "react-redux";
 import "./Styles/App.scss";
+
+var pages = {
+  listingPage: ProductListingPage,
+  displayPage: ProductDisplayPage,
+  cartPage: CartPage,
+};
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isCartOpen: false,
+    };
+    this.handleOverlay = this.handleOverlay.bind(this);
+  }
+
+  handleOverlay() {
+    this.setState((prevState) => ({
+      isCartOpen: !prevState.isCartOpen,
+    }));
   }
 
   render() {
+    var DisplayedPage = pages[this.props.displayedPage];
+
     return (
       <div className='App'>
-        <Navbar></Navbar>
-        {this.props.isDisplayingProduct === true ? (
-          <ProductDisplayPage></ProductDisplayPage>
-        ) : this.props.isDisplayingCart === true ? (
-          <CartPage></CartPage>
-        ) : (
-          <ProductListingPage></ProductListingPage>
-        )}
-        <div className='overlay overlayClosed' id='overlay'></div>
+        <Navbar handler={this.handleOverlay}></Navbar>
+        <DisplayedPage></DisplayedPage>
+        <div
+          className={
+            this.state.isCartOpen === true ? "overlay" : "overlay overlayClosed"
+          }
+          id='overlay'
+        ></div>
       </div>
     );
   }
@@ -31,8 +47,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    isDisplayingProduct: state.productDisplayPage.isDisplayingProduct,
-    isDisplayingCart: state.isDisplayingCartPage,
+    displayedPage: state.displayedPage,
   };
 };
 

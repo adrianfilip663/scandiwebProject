@@ -11,6 +11,7 @@ class ProductDisplayPage extends React.Component {
       selectedAttributes: "",
       displayedImage: this.props.displayedProduct.gallery[0],
     };
+    this.descriptionRef = React.createRef();
     this.addProductToCart = this.addProductToCart.bind(this);
     this.selectAttribute = this.selectAttribute.bind(this);
   }
@@ -23,14 +24,15 @@ class ProductDisplayPage extends React.Component {
       for (var i = 0; i < cart[productID].length; i++) {
         const cartItem = cart[productID][i];
         var sameAttributesExist = true;
-        Object.keys(cartItem.selectedAttributes).map((attributeName) => {
+        for( var j=0;j < Object.keys(cartItem.selectedAttributes).length; j++){
+          var attributeName = Object.keys(cartItem.selectedAttributes)[j]
           if (
             cartItem.selectedAttributes[attributeName] !==
             this.state.selectedAttributes[attributeName]
           ) {
             sameAttributesExist = false;
           }
-        });
+        }
         if (sameAttributesExist) {
           index = i;
           break;
@@ -39,17 +41,30 @@ class ProductDisplayPage extends React.Component {
       if (index > -1) {
         store.dispatch(incrementItemQuantity(productID, index));
       } else {
-        store.dispatch(addToCart(productID, this.props.displayedProduct, this.state.selectedAttributes));
+        store.dispatch(
+          addToCart(
+            productID,
+            this.props.displayedProduct,
+            this.state.selectedAttributes
+          )
+        );
       }
     } else {
-      store.dispatch(addToCart(productID, this.props.displayedProduct, this.state.selectedAttributes));
+      store.dispatch(
+        addToCart(
+          productID,
+          this.props.displayedProduct,
+          this.state.selectedAttributes
+        )
+      );
     }
   }
 
   componentDidMount() {
-    this.props.displayedProduct.attributes.map((attributeSet) => {
+    this.props.displayedProduct.attributes.forEach((attributeSet) => {
       this.selectAttribute(attributeSet.name, attributeSet.items[0].value);
     });
+    this.descriptionRef.current.innerHTML = this.props.displayedProduct.description;
   }
 
   selectAttribute(name, attribute) {
@@ -78,7 +93,7 @@ class ProductDisplayPage extends React.Component {
                 src={image}
                 className='smallProductImage'
                 key={index}
-                alt="Small Product"
+                alt='Small Product'
                 onClick={() => {
                   this.changeDisplayedImage(image);
                 }}
@@ -93,8 +108,7 @@ class ProductDisplayPage extends React.Component {
         </div>
         <div className='productInfoContainer'>
           <h2 className='displayedProductName'>
-            <span>{displayedProduct.brand}</span> <br />{" "}
-            {displayedProduct.name}
+            <span>{displayedProduct.brand}</span> <br /> {displayedProduct.name}
           </h2>
           <div className='productAttributesContainer'>
             {displayedProduct.attributes.map((attributeSet, index) => (
@@ -138,9 +152,8 @@ class ProductDisplayPage extends React.Component {
             <h2 className='infoTitle'>Price</h2>
             <h2 className='displayedProductPrice'>
               {this.props.selectedCurrency.symbol +
-                displayedProduct.prices[
-                  this.props.selectedCurrency.label
-                ].amount}
+                displayedProduct.prices[this.props.selectedCurrency.label]
+                  .amount}
             </h2>
           </div>
           <button
@@ -149,12 +162,7 @@ class ProductDisplayPage extends React.Component {
           >
             ADD TO CART
           </button>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: displayedProduct.description,
-            }}
-            className='productDescription'
-          ></div>
+          <div className="productDescription" ref={this.descriptionRef}></div>
         </div>
       </div>
     );
@@ -164,7 +172,7 @@ class ProductDisplayPage extends React.Component {
 const mapStateToProps = (state) => {
   return {
     selectedCurrency: state.selectedCurrency,
-    displayedProduct: state.productDisplayPage.displayedProduct,
+    displayedProduct: state.displayedProduct, 
     cart: state.cart,
   };
 };
